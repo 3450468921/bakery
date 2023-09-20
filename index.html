@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <header> <!--包含了网站的logo及页首相关的资讯-->
+      <meta charset="UTf-8"> 
+      <meta name="viewport" content="width=device-width initial-scale=1,0">
+      <title>烘焙工坊</title>
+      <link href="./style.css" rel="stylesheet">
+       <h1>烘焙工坊</h1>
+       <nav><!--用来放置网站的导览列或主选单-->
+       <ul>
+        <li><a href="#">最新消息</a></li>
+        <li><a href="#">关于我们</a></li>
+        <li><a href="#">门市据点</a></li>
+        <li><a href="#">会员专品</a></li>
+       </ul>
+       </nav>
+    </header>
+
+       <body>
+       <main><!--包含了网页的主要内容（如果包含了多个主题可以用section分隔）-->
+       <section class="news">
+       <h2>健康食物面包新鲜出炉</h2>
+       <p>亚麻的细语，葵花的微风，每一口都是与自然的叙事</p>
+       <p><a href="#">了解更多</a></p>
+       </section>
+
+       <section class="slogan">
+       <blockquote>还原天然食材，精湛匠心烘焙，<br>让幸福在每口面包的香气中蔓延</blockquote>
+       </section>
+
+       <section class="shop"><!--在下面是有三个区块元素的，如果直接使用flexbox会使三个元素对齐，接下来展示div（区域）的作用-->
+       <img alt="烘焙工坊" src="images/Shop.png">
+       <div class="info"><!--这个元素可以用来划分或组织html的元素。原本section区块元素有三个区块，现在因为div简化成了两个-->
+       <h2>8月1号隆重rrrrrr开张</h2>
+       <p>享受花园庭院的悠闲时光，内用座位品美食相伴，</p>
+       </div>
+       </section>
+
+       <section class="product">
+        <div>
+            <img src="images/p1.png" alt="巴黎风法国土司">
+            <h3>巴黎风法国土司</h3>
+            <p>外皮金黄酥脆，内质松软<br>让你体验法式浪漫的味觉享受</p>
+        </div>
+        <div>
+            <img src="images/p2.png" alt="皇家奶油可颂面包">
+            <h3>皇家奶油可颂面包</h3>
+            <p>外皮金黄酥脆，内质松软<br>让你体验法式浪漫的味觉享受</p>
+        </div>
+        <div>
+            <img src="images/p3.png" alt="健康营养全麦吐司">
+            <h3>健康营养全麦吐司</h3>
+            <p>外皮金黄酥脆，内质松软<br>让你体验法式浪漫的味觉享受</p>
+        </div>
+       </section>
+
+
+       <section class="newsletter">
+        <p>欢迎订阅烘焙工坊电子报，可不定期收到限定优惠哦！</p>
+        <form>
+            <input type="email" placeholder="请输入你的 email" required>
+            <button  type="submit">发送</button>
+        </form>
+       </section>
+       </main>
+    
+    <footer><!--页尾，用来标注网站的版权声明等附加资讯-->
+        <p>copyright@烘焙工坊 all rights reserved</p>
+    </footer>
+    </body>
+</html>

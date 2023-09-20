@@ -1,0 +1,200 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}/*这个是把浏览器网页元素之间默认的内边距与外边距清零，这样各元素之间的空隙就没有了*/
+
+header {
+    background-color: rgba(35, 28, 26, 0.8);/*这个是设置了导览列的透明度*/
+    height: 80px;
+    width: 100%;
+    /*position: relative;一开始设计的是这样子，但是后面我希望他可以在我视窗向下滚动时导览列会固定在银幕上方*/
+    position: fixed;/*这个是固定的意思，有了这个，当我们滚动屏幕时，导览列就会跟着一起了*//*不过要注意，当我们设置成fixed后整个版面会向上偏移，递补导览列原先所占的空间，要保持原样就要调整“.news的height”和“.news h2的margin-top”
+    /*分为相对（relative）和绝对（absolute）这两种，使用相对时，元素会从原本的位置开始移动*/
+}
+
+header ul {
+    position: absolute;/*从版面（父元素）的左上角开始计算，*/
+    right: 5vw;
+    top: 0;
+    line-height: 80px;/*本行与上一行和下一行的间距*/
+}
+
+h1 {
+    color: white;
+    position: absolute;
+    left: 120px;
+    top: 0;
+    line-height: 80px;
+    background-image: url(images/Logo.svg);/*这个是背景图片，使用这个而不去掉h1的原因是，h1文字有助于搜索引擎搜索*/
+    background-repeat: no-repeat;/*因为上面的导致这里图片重复，所以使用这个语法让图片只显示一张*/
+    background-position: center;/*这个是把logo的位置移到中间（个人理解是与上面的position：absolute有关*/
+    width: 200px;
+    text-indent: -9999px;/*因为原来的logo层上面叠加的一层不删除，但是会影响视觉，所有就使用文字缩排的方法把，把"烘焙工坊"推到-9999的地方，这样子就可以达到搜索引擎可以搜索到，并且只呈现出一个logo*/
+}
+
+header li {
+    display: inline;/*由于导览列的li标签是区块元素，所以每个链接都会独占一整行，呈现上下相叠的状态，所以我就使用display把他转成行内元素，让导览列变成横式的排列*/
+    margin-right: 4vw;/*同时加大每个按钮的右边距 ，这里有一个相对单位vw（viewport width），这里代表的是视窗宽度的4% ，使用相对单位的好处是当视窗的大小发生改变时，vw的宽度也会配合视窗宽度的大小进行改变 */
+}
+
+header a {
+    color: white;
+    text-decoration: none;/*这个是用了清理导览列文字（就是最新消息那几个）下面的链接语法所剩下了的底线*/
+}/*这是<header>元素里面所有的a标签*/
+
+header a:hover {
+    text-decoration: underline;/*这个就是让我的鼠标移动到导览列文字时出现下面的底线*/
+}
+
+.news {
+    background-color: antiquewhite;
+    color: white;
+    height: 95vw;/*现区块高度，因为header从relativ改成了fiexd*，具体原因可以去header那里看*/
+    /*原区块高度height: 85vw;/*区块高度*/
+    background-image: url(images/banner.png);
+    background-repeat: no-repeat;/*因为有一些图片的大小与视窗大小不一，会出现重复拼接的部分，因此使用这个语法*/
+    background-size: cover;/*但是，使用上面的语法后又会导致边框拼接的部分没有显示，因此，使用这个命令调整图片的大小*/
+    background-position: center;/*上面的一个语法虽然让图片填满了整个容器，但同时也可能会超过容器的边界，因此把图片置中与整个区块*/
+    display: flex;/*这个使元素区块中的子元素全部在一排里面横着排放*/
+    flex-direction: column;/*因为上面的语法使子元素全部横着排放，如果想让子元素纵向堆叠，则使用这个语法，这个语法的意思是flex方向为column（栏）*/
+    align-items: center;/*使子元素水平对齐为中央*/
+    justify-content: center;/*垂直对齐也是中央*/
+}
+
+.news h2 {
+    font-size: 60px;
+    margin-top: 60px;/*一开始这个是没有的，因为header从relativ改成了fiexd*，具体原因可以去header那里看*/
+}
+
+.news p {
+color: #f1f7e6;
+font-size: 18px;
+margin: 25px 0;/*调整文字上下的外边距*/
+}
+
+.news a {
+    color: white;
+    text-decoration: none;/*移除了超链接的底线*/
+    border: 1px solid #ACACAC;
+    padding: 10px 20px;/*在里面建立一个内边距*/
+    border-radius: 5px;/*这个是边框半径，使边框的四个角圆滑一些*/
+}
+
+.slogan {
+    background-color: #485652;
+    color: white;
+    height: 250px;/*区块高度*/
+    display: flex;/*根据上面的display介绍，我们也可以叫这个为flex的布局方式*/
+    align-items: center;
+    justify-content: center;/*还是根据这个及上面的那一个，使文字达到在屏幕中间显示的效果，区分好align-items是水平居中，justify-content是竖直方向上居中*/
+    font-size: 20px;
+    line-height: 1.8em;/*行高1.8倍*/
+
+}
+
+footer {
+    background-color: #000000;
+    color: B7B7B7;
+    height: 60px;/*区块高度*/
+    display: flex;/*根据上面的display介绍，我们也可以叫这个为flex的布局方式*/
+    align-items: center;
+    justify-content: center;/*还是根据这个及上面的那一个，使文字达到在屏幕中间显示的效果，区分好align-items是水平居中，justify-content是竖直方向上居中*/
+    font-size: 14px;
+
+}
+
+.shop {
+    display: flex;/*因为已经使用div把info（h2和p）进行了包括，因此与img（图片）构成了两区块，接下来就使info与img各占视窗的50%*/
+}
+
+.shop img {
+    width: 50%;/*占用了.shop里面的视窗宽度的50%*/
+}
+
+.shop info {
+    width: 50%;/*占用了.shop里面的视窗宽度的50%*/
+    /*下面的语法都是使文字在水平和竖直分析师居中，详细的解释可以参考footer等等*/
+    background-color: white;
+    flex-direction: column;/*因为上面的语法使子元素全部横着排放，如果想让子元素纵向堆叠，则使用这个语法，这个语法的意思是flex方向为column（栏）*/
+    align-items: center;
+    justify-content: center;
+}
+
+.info h2 {
+font-size: 40px;/*把h2的字体进行放大*/
+margin-bottom: 30px;/*拉高底部外边距*/
+}
+
+.info p {
+    text-align: center;/*p段落对齐*/
+    line-height: 2em;/*行高2.0倍*/
+}
+
+.product {
+    display: flex;
+    background-color: #ede9db;
+    justify-content: space-between;/*让产品照片平均分布在水平轴线上*/
+    align-items: center;/*垂直对齐设在中央*/
+    padding: 100px 180px 80px;/*加大区块四周的内边距*/
+}
+
+.product div {
+    width: 300px;
+    text-align: center;/*文字对齐与中央*/   
+}
+
+.product img {
+    width: 100%;/*这个就是使图片与div同宽*/
+    border-radius: 10px;
+}
+
+.product h3 {
+    font-size: 20px;
+    margin: 20px 0;/*调整了边框上下的外边距*/
+}
+
+.product p {
+font-size: 18px;
+line-height: 1.6em;/*行距加宽1.6倍*/
+}
+
+.newsletter {
+        background-color: #485652;
+        color: white;
+        padding: 60px 0;/*上下内边距加大60像素*/
+        display: flex;
+        flex-direction: column;/*因为设置的display导致元素内的子元素是横着排放的，但是现在设置这个语法，使子元素竖向相叠放置*/
+        align-items: center;
+}
+
+.newsletter p {
+    margin-bottom: 20px;
+}
+
+.newsletter input, .newsletter button {
+    background-color: transparent;/*将Email栏位和发出按钮设置成透明背景*/
+    color: white;
+    border: 1px solid #949d9a;/*1像素的外边框*/
+    padding: 10px;/*10像素的内边距*/
+    border-radius: 5px;/*圆角效果*/
+}
+
+.newsletter input {
+    width: 200px;/*这个是加宽了Email栏的宽度*/
+    margin-right: 15px;/*这个是将Email栏右侧的外边距进行了加宽*/
+}
+
+.newsletter button {
+    width: 80px;
+    cursor: pointer;/*当鼠标移动到按钮的上方时，鼠标会变成一个手指的形状*/
+}
+
+input::placeholder {
+    color: #DDDDDD;/*设置这个是因为原本在Email栏里使用placeholder留下的提醒颜色不好，所有使用这个语法进行换颜色*/
+}
+
+input:focus {/*设置这个的原因是原本我的鼠标只要点击Email栏，预设边缘就会显示一圈黑色的框线*/
+  outline: none;/*首先我们使用这个语法去除黑色的框线*/
+  border-color: #E0E9A3;/*使用这个语法可以添加一个自己喜欢的颜色*/
+}
